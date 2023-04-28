@@ -10,11 +10,11 @@ Backend https://api.niksmo-wishlist.nomoredomains.monster
 
 ### Бэкенд
 
-NestJS
-PostgreSQL
-TypeORM
+- NestJS
+- PostgreSQL
+- TypeORM
 
 ### Фронтенд
 
-React
-React-router
+- React
+- React-router
