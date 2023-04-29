@@ -6,6 +6,8 @@ services:
       context: ./backend/
       dockerfile: Dockerfile
     container_name: nest-js
+    depends_on:
+      - database
     env_file:
       - .env.api
       - .env.db
