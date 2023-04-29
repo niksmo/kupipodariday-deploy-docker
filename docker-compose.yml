@@ -1,0 +1,36 @@
+name: kupipodariday
+services:
+  backend:
+    image: 'kupipodariday-backend:1.0.0'
+    build:
+      context: ./backend/
+      dockerfile: Dockerfile
+    container_name: nest-js
+    env_file:
+      - .env.api
+      - .env.db
+    networks:
+      - api
+      - db
+    ports:
+      - '${API_PORT}:3000'
+    restart: unless-stopped
+
+  database:
+    image: 'postgres'
+    container_name: postgres
+    env_file:
+      - .env.db
+    volumes:
+      - db-data:/data/kupipodariday:rw
+    networks:
+      - db
+    restart: unless-stopped
+
+volumes:
+  db-data:
+
+networks:
+  api:
+  db:
+  frontend:

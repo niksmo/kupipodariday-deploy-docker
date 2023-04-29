@@ -1,6 +1,6 @@
 export function appConfig() {
   return {
-    port: Number(process.env.PORT),
+    port: Number(process.env.PORT) || 3000,
     database: {
       host: process.env.POSTGRES_HOST || 'localhost',
       port: Number(process.env.POSTGRES_PORT) || 5432,

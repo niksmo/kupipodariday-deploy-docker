@@ -10,7 +10,7 @@ import { WishListsModule } from './wishlists/wishlists.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ envFilePath: '.env', load: [appConfig] }),
+    ConfigModule.forRoot({ load: [appConfig] }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       ...appConfig().database,
