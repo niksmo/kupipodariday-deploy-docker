@@ -1,4 +1,18 @@
-export const URL = 'https://api.niksmo-wishlist.nomoredomains.monster';
+function getURL() {
+  const DEV = 'development';
+  const PROD = 'production';
+
+  if (process.env.NODE_ENV === PROD) {
+    // eslint-disable-next-line no-restricted-globals
+    return location.protocol + '//api.' + location.hostname;
+  }
+
+  if (process.env.NODE_ENV === DEV) {
+    return 'http://localhost:4000';
+  }
+}
+
+export const URL = getURL();
 
 export const MINIMUM_PASSWORD_LENGTH = 3;
 export const MINIMUM_USERNAME_LENGTH = 3;
