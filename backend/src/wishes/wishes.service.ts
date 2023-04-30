@@ -20,14 +20,12 @@ export class WishesService {
     @InjectRepository(Wish) private wishesRepository: Repository<Wish>
   ) {}
 
-  async create(createWishDto: CreateWishDto, user: User): Promise<Wish> {
+  async create(createWishDto: CreateWishDto, user: User) {
     createWishDto.price = roundToHundredths(createWishDto.price);
     return this.wishesRepository.save({ ...createWishDto, owner: user });
   }
 
-  async findOne(
-    ...query: Parameters<typeof this.wishesRepository.findOne>
-  ): Promise<Wish> {
+  async findOne(...query: Parameters<typeof this.wishesRepository.findOne>) {
     const wish = await this.wishesRepository.findOne(...query);
 
     if (wish === null) {
